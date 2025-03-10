@@ -12,45 +12,27 @@ public class Book implements Serializable {
     @Id
     private String id;
     private int bookId;
-    @Indexed(unique = true)
-    private String ISBN;
+    private String isbn;
     private String title;
     private String edition;
     private String publicationYear;
     private String genere;
     private List<String> authors = new ArrayList<>();
-    @Indexed(unique = true)
     private int quantity;
 
     public Book() {
     }
 
-    public Book(String id, int bookId, String ISBN, String title, String edition, String publicationYear, String genere, List<String> authors, int quantity) {
+    public Book(String id, int bookId, String isbn, String title, String edition, String publicationYear, String genere, List<String> authors, int quantity) {
         this.id = id;
         this.bookId = bookId;
-        this.ISBN = ISBN;
+        this.isbn = isbn;
         this.title = title;
         this.edition = edition;
         this.publicationYear = publicationYear;
         this.genere = genere;
         this.authors = authors;
         this.quantity = quantity;
-    }
-
-    public List<String> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List<String> authors) {
-        this.authors = authors;
-    }
-
-    public int getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
     }
 
     public String getId() {
@@ -61,12 +43,20 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getTitle() {
@@ -101,6 +91,13 @@ public class Book implements Serializable {
         this.genere = genere;
     }
 
+    public List<String> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(List<String> authors) {
+        this.authors = authors;
+    }
 
     public int getQuantity() {
         return quantity;

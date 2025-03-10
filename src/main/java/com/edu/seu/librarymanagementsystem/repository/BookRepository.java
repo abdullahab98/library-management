@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface BookRepository extends MongoRepository<Book,String> {
     Optional<Book> findByBookId(int id);
+    void deleteByBookId(int id);
 }

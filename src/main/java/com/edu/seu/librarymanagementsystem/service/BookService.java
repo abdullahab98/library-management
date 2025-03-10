@@ -29,11 +29,11 @@ public class BookService {
     }
     public Book updateBook( Book book){
         Book book1 = findById(book.getBookId());
-        book1.setTitle(book.getTitle());
-        book1.setCopyId(book.getCopyId());
-        book1.setAuthor(book.getAuthor());
-        book1.setQuantity(book.getQuantity());
-        return bookRepository.save(book1);
+        book.setId(book1.getId());
+        return bookRepository.save(book);
+    }
+    public void deleteBook(String id){
+        bookRepository.deleteById(id);
     }
 
 }
