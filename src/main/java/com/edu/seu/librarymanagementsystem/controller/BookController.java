@@ -30,4 +30,8 @@ public class BookController {
     public Book updateBook(@RequestBody Book book){
         return bookService.updateBook(book);
     }
+//    @GetMapping("test")
+//    public String test(){
+//        return "test";
+//    }
 }

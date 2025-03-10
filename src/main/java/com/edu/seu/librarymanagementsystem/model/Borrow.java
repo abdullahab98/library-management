@@ -1,6 +1,7 @@
 package com.edu.seu.librarymanagementsystem.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -11,7 +12,9 @@ import java.util.List;
 public class Borrow implements Serializable {
     @Id
     private String id;
+    @DBRef
     private Student student;
+    @DBRef
     private List<Book> book;
     private LocalDate borrowDate;
     private String status;
