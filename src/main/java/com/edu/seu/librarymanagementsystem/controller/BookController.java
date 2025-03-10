@@ -4,6 +4,8 @@ import com.edu.seu.librarymanagementsystem.model.Book;
 import com.edu.seu.librarymanagementsystem.service.BookService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("book")
 public class BookController {
@@ -34,4 +36,8 @@ public class BookController {
 //    public String test(){
 //        return "test";
 //    }
+    @GetMapping("get-all")
+    public List<Book> getAllBooks(){
+        return bookService.getAll();
+    }
 }
