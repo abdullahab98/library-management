@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 @Document(collection = "book")
 public class Book implements Serializable {
@@ -14,28 +15,34 @@ public class Book implements Serializable {
     @Indexed(unique = true)
     private String ISBN;
     private String title;
-    private List<String> author;
     private String edition;
     private String publicationYear;
     private String genere;
+    private List<String> authors = new ArrayList<>();
     @Indexed(unique = true)
-    private String copyId;
     private int quantity;
 
     public Book() {
     }
 
-    public Book(String id, int bookId, String ISBN, String title, List<String> author, String edition, String publicationYear, String genere, String copyId, int quantity) {
+    public Book(String id, int bookId, String ISBN, String title, String edition, String publicationYear, String genere, List<String> authors, int quantity) {
         this.id = id;
         this.bookId = bookId;
         this.ISBN = ISBN;
         this.title = title;
-        this.author = author;
         this.edition = edition;
         this.publicationYear = publicationYear;
         this.genere = genere;
-        this.copyId = copyId;
+        this.authors = authors;
         this.quantity = quantity;
+    }
+
+    public List<String> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(List<String> authors) {
+        this.authors = authors;
     }
 
     public int getBookId() {
@@ -70,14 +77,6 @@ public class Book implements Serializable {
         this.title = title;
     }
 
-    public List<String> getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(List<String> author) {
-        this.author = author;
-    }
-
     public String getEdition() {
         return edition;
     }
@@ -102,13 +101,6 @@ public class Book implements Serializable {
         this.genere = genere;
     }
 
-    public String getCopyId() {
-        return copyId;
-    }
-
-    public void setCopyId(String copyId) {
-        this.copyId = copyId;
-    }
 
     public int getQuantity() {
         return quantity;

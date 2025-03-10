@@ -18,16 +18,36 @@ public class Borrow implements Serializable {
     private List<Book> book;
     private LocalDate borrowDate;
     private String status;
+    private LocalDate dueDate;
+    private LocalDate returnDate;
 
     public Borrow() {
     }
 
-    public Borrow(String id, Student student, List<Book> book, LocalDate borrowDate, String status) {
+    public Borrow(String id, Student student, List<Book> book, LocalDate borrowDate, String status, LocalDate dueDate, LocalDate returnDate) {
         this.id = id;
         this.student = student;
         this.book = book;
         this.borrowDate = borrowDate;
         this.status = status;
+        this.dueDate = dueDate;
+        this.returnDate = returnDate;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public LocalDate getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
     }
 
     public String getId() {
